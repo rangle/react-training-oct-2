@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { RobotCard } from './components/RobotCard';
 
-const App = () => (
-  <RobotCard uid={1} name="Alice X" email="alice@test.com" className="w5" />
+const App = ({ users }) => (
+  <div>
+    {users.map(user => (
+      <RobotCard key={user.uid} {...user} className="w5 ma3" />
+    ))}
+  </div>
 );
 
 export default App;
