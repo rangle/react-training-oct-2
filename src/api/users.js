@@ -11,3 +11,9 @@ function normalizeUsers(users) {
 export function getUsers() {
   return get('/users').then(normalizeUsers);
 }
+
+export function getFilteredUsers(users, query) {
+  return users.filter(user => {
+    return user.name.toLowerCase().includes(query.toLowerCase());
+  });
+}
