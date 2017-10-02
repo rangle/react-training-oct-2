@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-import { RobotCard } from './components/RobotCard';
+import React from 'react';
+import { HomeContainer } from './containers/Home.container';
 
 const App = ({ users }) => (
   <div>
-    {users.map(user => (
-      <RobotCard key={user.uid} {...user} className="w5 ma3" />
-    ))}
+    <HomeContainer />
   </div>
 );
 
