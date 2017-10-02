@@ -1,9 +1,11 @@
 import React from 'react';
 import { RobotCard } from '../components/RobotCard';
+import { getUsers } from '../api/users';
 
 export class HomeContainer extends React.Component {
   state = {
     users: [],
+    error: null,
   };
 
   // constructor(props) {
@@ -12,19 +14,26 @@ export class HomeContainer extends React.Component {
   // }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.setState(state => ({
-        users: [{ uid: 1, name: 'Alice x', email: 'alice@test.com' }],
-      }));
-    }, 3000);
+    getUsers().then(
+      users => {
+        this.setState(state => ({ users, error: null }));
+      },
+      error => this.setState({ error: error.message }),
+    );
   }
 
   render() {
     return (
       <div>
-        {this.state.users.map(user => (
-          <RobotCard key={user.uid} {...user} className="w5 ma3" />
-        ))}
+        {this.state.error ? (
+          <div>{this.state.error}</div>
+        ) : (
+          <div>
+            {this.state.users.map(user => (
+              <RobotCard key={user.uid} {...user} className="w5 ma3" />
+            ))}
+          </div>
+        )}
       </div>
     );
   }
