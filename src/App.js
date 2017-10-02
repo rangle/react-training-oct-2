@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
-import { Text } from './components/Text';
-import { Heading } from './components/Heading';
+import { RobotCard } from './components/RobotCard';
 
 const App = () => (
-  <div>
-    <Heading level={2} size={4}>
-      Alice X
-    </Heading>
-    <Text color="green">Hello World!</Text>
-  </div>
+  <RobotCard uid={1} name="Alice X" email="alice@test.com" className="w5" />
 );
 
 export default App;
