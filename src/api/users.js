@@ -17,3 +17,7 @@ export function getFilteredUsers(users, query) {
     return user.name.toLowerCase().includes(query.toLowerCase());
   });
 }
+
+export function getUserByID(uid, users) {
+  return users.find(user => user.uid === uid);
+}
