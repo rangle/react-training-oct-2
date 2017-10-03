@@ -15,15 +15,18 @@ const USERS = {
  */
 const intialUsersState = {
   users: [],
+  isLoading: false,
   error: null,
 };
 
 function usersReducer(state = intialUsersState, action) {
   switch (action.type) {
+    case USERS.FETCH:
+      return { ...state, isLoading: true };
     case USERS.UPDATE:
-      return { users: action.payload, error: null };
+      return { ...state, users: action.payload, error: null, isLoading: false };
     case USERS.FETCH_FAILED:
-      return { ...state, error: action.payload };
+      return { ...state, error: action.payload, isLoading: false };
     default:
       return state;
   }
@@ -34,6 +37,8 @@ function usersReducer(state = intialUsersState, action) {
  */
 export function fetchUsers() {
   return (dispatch, getState) => {
+    dispatch({ type: USERS.FETCH });
+
     getUsers()
       .then(users => {
         dispatch({ type: USERS.UPDATE, payload: users });
