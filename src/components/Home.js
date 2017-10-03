@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { RobotCard } from '../components/RobotCard';
 import { SearchBar } from '../components/SearchBar';
 
@@ -11,7 +12,9 @@ export const Home = ({ users, query, error, updateQuery }) => {
       ) : (
         <div className="flex flex-wrap justify-center">
           {users.map(user => (
-            <RobotCard key={user.uid} {...user} className="w5 ma3" />
+            <Link to={`/users/${user.uid}`} key={user.uid} className="link">
+              <RobotCard {...user} className="w5 ma3" />
+            </Link>
           ))}
         </div>
       )}

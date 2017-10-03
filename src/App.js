@@ -1,4 +1,5 @@
 import React from 'react';
+import CSSTransition from 'react-transition-group/CSSTransition';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { HomeContainer } from './containers/Home.container';
