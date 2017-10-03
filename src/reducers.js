@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { getUsers } from './api/users';
 
 /**
  * Users Action Types
@@ -31,12 +32,16 @@ function usersReducer(state = intialUsersState, action) {
 /**
  * Users Action Creators
  */
-export function getUsers(users) {
-  return { type: USERS.UPDATE, payload: users };
-}
-
-export function showError(error) {
-  return { type: USERS.FETCH_FAILED, payload: error };
+export function fetchUsers() {
+  return (dispatch, getState) => {
+    getUsers()
+      .then(users => {
+        dispatch({ type: USERS.UPDATE, payload: users });
+      })
+      .catch(error => {
+        dispatch({ type: USERS.FETCH_FAILED, payload: error.message });
+      });
+  };
 }
 
 /**
