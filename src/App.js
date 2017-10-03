@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { HomeContainer } from './containers/Home.container';
+import { DetailsContainer } from './containers/Details.container';
 import { fetchUsers } from './reducers';
 
 class App extends React.Component {
@@ -21,7 +22,7 @@ class App extends React.Component {
             </nav>
 
             <Route exact path="/" component={HomeContainer} />
-            <Route path="/users" component={() => <h1>User Details</h1>} />
+            <Route path="/users/:uid" component={DetailsContainer} />
           </div>
         </Router>
       </div>
