@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import { Avatar } from './Avatar';
 import { Heading } from './Heading';
 import { Text } from './Text';
+import { TiltCard } from './TiltCard';
 
 export const RobotCard = ({ uid, name, email, className, ...props }) => (
-  <div className={`pa3 bg-near-white br2 tc ${className}`} {...props}>
+  <TiltCard className={`pa3 bg-near-white br2 tc ${className}`} {...props}>
     <Avatar uid={uid} />
     <Heading level={2} size={4}>
       {name}
     </Heading>
     <Text color="green">{email}</Text>
-  </div>
+  </TiltCard>
 );
 
 RobotCard.PropTypes = {
