@@ -11,6 +11,7 @@
     "react-scripts": "1.0.14",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.1",
     "tachyons": "^4.8.1",
     "vanilla-tilt": "^1.4.1"
   },

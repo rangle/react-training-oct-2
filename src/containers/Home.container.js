@@ -1,11 +1,22 @@
 import { connect } from 'react-redux';
+import { createSelector, createStructuredSelector } from 'reselect';
 import { Home } from '../components/Home';
 import { search } from '../reducers';
+import { getFilteredUsers } from '../api/users';
 
-const mapStateToProps = state => ({
-  users: state.users.users,
-  error: state.users.error,
-  query: state.ui.query,
+const usersSelector = state => state.users.users;
+const querySelector = state => state.ui.query;
+const errorSelector = state => state.users.error;
+
+const filteredUsersSelector = createSelector(
+  [usersSelector, querySelector],
+  (users, query) => getFilteredUsers(users, query),
+);
+
+const mapStateToProps = createStructuredSelector({
+  users: filteredUsersSelector,
+  query: querySelector,
+  error: errorSelector,
 });
 
 const mapDispatchToActions = {
