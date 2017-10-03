@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { HomeContainer } from './containers/Home.container';
 import { fetchUsers } from './reducers';
 
@@ -11,7 +12,18 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <HomeContainer />
+        <Router>
+          <div>
+            <nav className="ma3">
+              <Link to="/" className="link blue mb4">
+                Home
+              </Link>
+            </nav>
+
+            <Route exact path="/" component={HomeContainer} />
+            <Route path="/users" component={() => <h1>User Details</h1>} />
+          </div>
+        </Router>
       </div>
     );
   }
