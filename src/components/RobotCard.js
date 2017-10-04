@@ -5,7 +5,7 @@ import { Heading } from './Heading';
 import { Text } from './Text';
 import { TiltCard } from './TiltCard';
 
-export const RobotCard = ({ uid, name, email, className, ...props }) => (
+export const RobotCard = ({ uid, name, email, className = '', ...props }) => (
   <TiltCard className={`pa3 bg-near-white br2 tc ${className}`} {...props}>
     <Avatar uid={uid} />
     <Heading level={2} size={4}>

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RobotCard 1`] = `
+<div
+  className="pa3 bg-near-white br2 tc "
+>
+  <img
+    alt="user profile"
+    className="br-100 w4 h4 "
+    src="https://robohash.org/1"
+  />
+  <h2
+    className="sans-serif dark-gray f4"
+  >
+    Alice X
+  </h2>
+  <p
+    className="green f5 sans-serif"
+  >
+    alice@test.com
+  </p>
+</div>
+`;
