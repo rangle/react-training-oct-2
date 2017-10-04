@@ -7,7 +7,9 @@ const users = [{ name: 'Alice', id: 1, email: 'alice@test.com' }];
 getUsers
   .mockImplementationOnce(() => Promise.resolve())
   .mockImplementationOnce(() => Promise.resolve(users))
-  .mockImplementationOnce(() => Promise.reject('Fetch request failed'));
+  .mockImplementationOnce(() =>
+    Promise.reject(new Error('Fetch request failed')),
+  );
 
 const { usersReducer, USERS } = __test;
 
@@ -68,17 +70,27 @@ describe('Fetch Users', () => {
 
   it('should disptach update users with appropriate payload', () => {
     const thunk = fetchUsers();
-    thunk(mockDispatch);
-
-    // expect(mockDispatch.mock.calls.length).toBe(2);
+    thunk(mockDispatch).then(() => {
+      expect(mockDispatch.mock.calls.length).toBe(2);
+      expect(mockDispatch.mock.calls[1]).toEqual([
+        {
+          type: USERS.UPDATE,
+          payload: users,
+        },
+      ]);
+    });
   });
 
   it('should disptach fetch failed with error message', () => {
     const thunk = fetchUsers();
-    thunk(mockDispatch);
-
-    console.log(mockDispatch.mock.calls);
-
-    // expect(mockDispatch.mock.calls.length).toBe(2);
+    thunk(mockDispatch).then(() => {
+      expect(mockDispatch.mock.calls.length).toBe(2);
+      expect(mockDispatch.mock.calls[1]).toEqual([
+        {
+          type: USERS.FETCH_FAILED,
+          payload: 'Fetch request failed',
+        },
+      ]);
+    });
   });
 });

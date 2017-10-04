@@ -39,7 +39,7 @@ export function fetchUsers() {
   return (dispatch, getState) => {
     dispatch({ type: USERS.FETCH });
 
-    getUsers()
+    return getUsers()
       .then(users => {
         dispatch({ type: USERS.UPDATE, payload: users });
       })
