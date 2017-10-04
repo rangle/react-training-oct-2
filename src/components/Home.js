@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { RobotCard } from '../components/RobotCard';
 import { SearchBar } from '../components/SearchBar';
+import { LoginForm } from '../components/LoginForm';
 
 export const Home = ({ users, query, error, updateQuery }) => {
   return (
     <div className="mw8 center">
       <SearchBar onSearch={updateQuery} value={query} />
+      <LoginForm />
       {error ? (
         <div>{error}</div>
       ) : (
