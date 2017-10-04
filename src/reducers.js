@@ -83,3 +83,9 @@ export const rootReducer = combineReducers({
   users: usersReducer,
   ui: uiReducer,
 });
+
+export const __test = {
+  usersReducer,
+  uiReducer,
+  USERS,
+};
