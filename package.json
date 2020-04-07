@@ -9,7 +9,7 @@
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14",
     "tachyons": "^4.8.1",
-    "vanilla-tilt": "^1.4.1"
+    "vanilla-tilt": "^1.7.0"
   },
   "scripts": {
     "start": "react-scripts start",
