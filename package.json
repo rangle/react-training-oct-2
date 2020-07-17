@@ -7,7 +7,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14",
+    "react-scripts": "2.0.0",
     "tachyons": "^4.8.1",
     "vanilla-tilt": "^1.4.1"
   },
