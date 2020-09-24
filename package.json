@@ -4,9 +4,9 @@
   "private": true,
   "dependencies": {
     "classnames": "^2.2.5",
-    "prop-types": "^15.6.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
     "react-scripts": "1.0.14",
     "tachyons": "^4.8.1",
     "vanilla-tilt": "^1.4.1"
